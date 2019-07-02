@@ -1,0 +1,91 @@
+// // 进入的过程
+// .t-mask-enter,.t-mask-leave-active{
+//     transition: all .6s;
+// }
+// .t-mask-enter,.t-mask-leave-to{
+//     // 进入的时候是什么样式
+//     transform: scale(2);
+// }
+
+// // 离开过程
+// .t-mask-leave,.t-mask-enter-active{
+//     transition: all .3s;
+// }
+// .t-mask-leave,.t-mask-enter-to{
+//     // 离开是什么样式
+//     transform: scale(1)
+// }
+
+// 进入的过程
+.t-mask-enter-active,.t-mask-leave-active{
+    opacity: 1;
+    transition: all .6s;
+}
+.t-mask-enter,.t-mask-leave-to{
+    opacity: 0;
+    // 进入的时候是什么样式
+    transform: scale(0);
+}
+
+// 离开过程
+.t-mask-enter,.t-mask-leave-active{
+    
+    opacity: 0;
+    // 进入的时候是什么样式
+    transform: scale(5);
+}
+.t-mask-leave-active,.t-mask-enter-active{
+    // 离开是什么样式
+    transition: all .3s;
+}
+
+// 进入的过程
+.t-mask2-enter-active,.t-mask2-leave-active{
+    opacity: 1;
+    transition: all .6s;
+}
+.t-mask2-enter,.t-mask2-leave-to{
+    opacity: 0;
+    // 进入的时候是什么样式
+    transform: scale(3);
+}
+
+// 离开过程
+.t-mask2-enter,.t-mask2-leave-active{
+    
+    opacity: 0;
+    // 进入的时候是什么样式
+    transform: scale(0);
+}
+.t-mask2-leave-active,.t-mask2-enter-active{
+    // 离开是什么样式
+    transition: all .3s;
+}
+
+
+.vux-dialog-enter-active {
+    animation: vux-dialog-in .5s;
+  }
+  .vux-dialog-leave-active {
+    animation: vux-dialog-out .3s;
+  }
+  @keyframes vux-dialog-in {
+    0% {
+      transform: scale(1.185);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes vux-dialog-out {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.85);
+      opacity: 0;
+    }
+  }

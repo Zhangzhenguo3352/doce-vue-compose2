@@ -1,0 +1,16 @@
+// 进入的过程
+.t-mask-enter,.t-mask-leave-active{
+    transition: opacity 1s;
+    
+}
+.t-mask-enter,.t-mask-leave-to{
+    opacity: 0;
+}
+
+// 离开过程
+.t-mask-leave,.t-mask-enter-active{
+    transition: opacity .5s
+}
+.t-mask-leave,.t-mask-enter-to{
+    opacity: 1;
+}

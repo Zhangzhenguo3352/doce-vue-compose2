@@ -1,0 +1,152 @@
+<!-- input组件  start-->
+      <coms title="input组件">
+        <x-input/><br/>
+        <l-input/><br/>
+        <top-title-input/><br/>
+      </coms>
+      <!-- input组件  end -->
+
+
+      <!-- switch开关组件  start-->
+      <coms title="switch开关组件">
+        
+        <switch-component :xchange="switchChange" :init-data="switchInitData" :checked-type="checkedType"></switch-component> {{checkedType}}<br/>
+      </coms>
+      <!-- switch开关组件  end -->
+
+      <!-- card卡片组件  start-->
+      <coms title="card卡片组件">
+        <card><h3>sdas</h3></card><br/>
+      </coms>
+      <!-- card卡片组件  end -->
+
+      <!-- animantion动画组件  start-->
+      <coms title="animantion动画组件">
+        <switch-component :xchange="switchAnimationChange" :init-data="switchInitDataAnim" :checked-type="checkedAnimationType"></switch-component> {{checkedAnimationType}}<br/><br/><br/><br/><br/><br/>
+        <animation
+          :animated="checkedAnimationType" 
+          :animated-one="animatedOne"
+          :animated-one-enter-fn="animatedOneEnterFn"
+          :animated-one-over-fn="animatedOneOverFn"
+        >
+        </animation><br/>
+        
+        <t-animation
+          :t-style="{
+            enter: {
+              time: '.4s',
+              animationType: 'linear',
+              from: {
+                WebkitTransform: 'scale3d(1, 1, 1)',
+                transform: 'scale3d(1, 1, 1)',
+              },
+              to: {
+                WebkitTransform: 'scale3d(1.05, 1.05, 1.05)',
+                transform: 'scale3d(1.05, 1.05, 1.05)',
+              }
+            },
+            leave: {
+              time: '.1s',
+              animationType: 'linear',
+              from: {
+                transform: 'translate(-400px, -400px) scale(0) rotate(-190deg)',
+                opacity: 0
+              },
+              to: {
+                transform: 'translate(0px, 0px) scale(1) rotate(0deg)',
+                opacity: 1
+              }
+            }
+          }"
+          :init-style = "{
+            opacity: 1,
+            transition: 'opacity linear 0.2s'
+          }"
+          :t-switch="checkedAnimationType"
+          :t-animation-event="tAnimationType"
+        ></t-animation>
+      </coms>
+      <!-- animantion动画组件  end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<template>
+  <div>
+    <transition name="t-mask">
+        <div class="mask" v-if="show"></div>
+    </transition>
+  </div>
+</template>
+
+<script>
+export default {
+    name: 'MaskComponent',
+    data() {
+        return {
+           show: true
+        }
+    },
+    props: {
+        
+    },
+    mounted() {
+        setTimeout(() => {
+            this.show = false
+            setTimeout(() => {
+                this.show = true
+                setTimeout(() => {
+                    this.show = false
+                }, 1000)
+            }, 1000)
+        }, 1000)
+    },
+    methods: {
+        
+    },
+    computed: {
+        
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+.mask{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(142, 133, 133, .7);;
+    position: fixed;
+    left:0;
+    top: 0;
+    z-index: 99999999;
+}
+// 进入的过程
+.t-mask-enter,.t-mask-leave-active{
+    transition: opacity .5s;
+    
+}
+.t-mask-enter,.t-mask-leave-to{
+    opacity: 0;
+}
+
+// 离开过程
+.t-mask-leave,.t-mask-enter-active{
+    transition: opacity .5s
+}
+.t-mask-leave,.t-mask-enter-to{
+    opacity: 1;
+}
+
+</style>
+
+
+
